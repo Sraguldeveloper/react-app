@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(props) {
+  const initialTools=[
+    {
+      id:1,
+      title:"Todo1",
+      complete:false
+    },
+    {
+      id:2,
+      title:"Todo2",
+      complete:false
+    }
+  ]
+  const reducer=(state,action)=>{
+    switch(action.type){
+      case "COMPLETE":
+        return state.map((todo)=>{
+          if(todo.id===action.id){
+            return{...todo,complete:!todo}
+          }
+        })
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      
+    </>
   );
 }
 
